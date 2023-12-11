@@ -1,3 +1,4 @@
+var Emitter = require('mEmitter');
 cc.Class({
     extends: cc.Component,
 
@@ -10,19 +11,26 @@ cc.Class({
         cover: cc.Node,
         clockTime: cc.Label,
 
+        timeBar: cc.ProgressBar,
+
         //gameOverPanel: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        Emitter.instance = new Emitter();
+        Emitter.instance.registerEvent("STARTCOUNTDOWN", this.fillBar.bind(this));
+    },
 
     start () {
         this.currentTime = this.time;
         this.coverSprite = this.cover.getComponent(cc.Sprite);
+        this.timeBar.progress = 1;
     },
 
     update (dt) {
+        cc.log(this.currentTime)
         if(!this.isTyping) return;
         if(this.currentTime >= (this.time*0.4)){
             this.cover.color = new cc.Color(0,255,0);
@@ -45,7 +53,6 @@ cc.Class({
         this.gameOverPanel.active = true;
         this.gameOverPanel.getComponent(cc.Animation).play('GameOver');
         this.gameOverPanel.getComponent('gameOver').setWPM();
-
         this.node.parent.active = false;
     },
 
@@ -55,5 +62,11 @@ cc.Class({
         this.cover.color = new cc.Color(0,255,0);
         this.coverSprite.fillRange = this.currentTime/60;
         this.isTyping = false;
+    },
+
+    fillBar(){
+        cc.tween(this.currentTime)
+        .to(60,0)
+        .start()
     }
 });

@@ -59,6 +59,7 @@ cc.Class({
     },
 
     onTextChanged(){
+        Emitter.instance.emit('STARTCOUNTDOWN');
         this.clock.getComponent('clock').isTyping = true;
         cc.log("|"+this.typingInput.string+'|');
         if(this.typingInput.string.includes(' ')) {
