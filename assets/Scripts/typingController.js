@@ -1,3 +1,4 @@
+const Emitter = require('mEmitter');
 const randomWords = require("random-words");
 
 cc.Class({
@@ -5,6 +6,7 @@ cc.Class({
     properties: {  
         indexTyping: 0,
         numSpace: 0,
+        numberOfCorrect : 0,
 
         _textTemp:'',
 
@@ -53,10 +55,10 @@ cc.Class({
             this.wordsLayout2[j].string = this.wordsArray[j+this.row1.childrenCount];
             this.wordsLayout[j].node.color = new cc.Color(255,255,255);
         }
-        this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,0,0);
+        this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);
     },
 
-    onTextChanged() {
+    onTextChanged(){
         this.clock.getComponent('clock').isTyping = true;
         cc.log("|"+this.typingInput.string+'|');
         if(this.typingInput.string.includes(' ')) {
@@ -66,12 +68,14 @@ cc.Class({
 
     checkMatch(input){
         if(this.wordsLayout[this.indexTyping].string === input) {
+            this.numberOfCorrect++;
+            Emitter.instance.emit('CORRECT', this.numberOfCorrect);
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,255,0);
         }
         else this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
         this.indexTyping++;
         if(this.indexTyping < 5) {
-            this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,0,0);
+            this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);
         }
         this.clearEditBox();
     },

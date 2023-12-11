@@ -484,7 +484,7 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 5,
+      "x": 4,
       "y": 1,
       "z": 1
     },
@@ -607,7 +607,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 128.2,
+      "width": 96.15,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -617,7 +617,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -68,
+      "x": -64,
       "y": 0,
       "z": 0
     },
@@ -655,7 +655,7 @@
     "_useOriginalSize": false,
     "_string": "Word 0",
     "_N$string": "Word 0",
-    "_fontSize": 40,
+    "_fontSize": 30,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -708,8 +708,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 117.09,
-      "height": 50.4
+      "width": 87.82,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -718,7 +718,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -34,
+      "x": -32,
       "y": 0,
       "z": 0
     },
@@ -756,8 +756,8 @@
     "_useOriginalSize": false,
     "_string": "Word1",
     "_N$string": "Word1",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -809,8 +809,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 117.09,
-      "height": 50.4
+      "width": 87.82,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -857,8 +857,8 @@
     "_useOriginalSize": false,
     "_string": "Word2",
     "_N$string": "Word2",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -910,8 +910,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 117.09,
-      "height": 50.4
+      "width": 87.82,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -920,7 +920,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 34,
+      "x": 32,
       "y": 0,
       "z": 0
     },
@@ -958,8 +958,8 @@
     "_useOriginalSize": false,
     "_string": "Word3",
     "_N$string": "Word3",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1011,8 +1011,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 117.09,
-      "height": 50.4
+      "width": 87.82,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1021,7 +1021,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 68,
+      "x": 64,
       "y": 0,
       "z": 0
     },
@@ -1059,8 +1059,8 @@
     "_useOriginalSize": false,
     "_string": "Word4",
     "_N$string": "Word4",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1136,8 +1136,8 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 5,
-    "_N$paddingRight": 5,
+    "_N$paddingLeft": 10,
+    "_N$paddingRight": 10,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 0,
@@ -1265,8 +1265,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 96.15,
-      "height": 37.8
+      "width": 80.13,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1313,8 +1313,8 @@
     "_useOriginalSize": false,
     "_string": "Word 0",
     "_N$string": "Word 0",
-    "_fontSize": 30,
-    "_lineHeight": 30,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1366,8 +1366,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 87.82,
-      "height": 37.8
+      "width": 73.18,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1414,8 +1414,8 @@
     "_useOriginalSize": false,
     "_string": "Word1",
     "_N$string": "Word1",
-    "_fontSize": 30,
-    "_lineHeight": 30,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1467,8 +1467,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 87.82,
-      "height": 37.8
+      "width": 73.18,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1515,8 +1515,8 @@
     "_useOriginalSize": false,
     "_string": "Word2",
     "_N$string": "Word2",
-    "_fontSize": 30,
-    "_lineHeight": 30,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1568,8 +1568,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 87.82,
-      "height": 37.8
+      "width": 73.18,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1616,8 +1616,8 @@
     "_useOriginalSize": false,
     "_string": "Word3",
     "_N$string": "Word3",
-    "_fontSize": 30,
-    "_lineHeight": 30,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1669,8 +1669,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 87.82,
-      "height": 37.8
+      "width": 73.18,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1717,8 +1717,8 @@
     "_useOriginalSize": false,
     "_string": "Word4",
     "_N$string": "Word4",
-    "_fontSize": 30,
-    "_lineHeight": 30,
+    "_fontSize": 25,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1832,9 +1832,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "6b16f6a2-b6d0-4750-a16c-a3dbe3ef653e"
+      "__uuid__": "2760e95a-639c-4c6d-9af6-b58f5975070e"
     },
-    "_type": 1,
+    "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -2203,7 +2203,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 40
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2212,8 +2212,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": -250,
+      "x": -2.722,
+      "y": 53.433,
       "z": 0
     },
     "_scale": {
@@ -2265,8 +2265,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 40
+      "width": 250,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2313,7 +2313,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "ff0e91c7-55c6-4086-a39f-cb6e457b8c3b"
+      "__uuid__": "a9069e5f-b8a0-4a4b-8178-994e44409c32"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2340,8 +2340,8 @@
     "alignMode": 0,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 0,
-    "_right": 0,
+    "_left": -25,
+    "_right": -25,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -2526,7 +2526,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 198,
-      "height": 40
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2536,7 +2536,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -98,
-      "y": 20,
+      "y": 30,
       "z": 0
     },
     "_scale": {
