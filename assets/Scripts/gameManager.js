@@ -5,28 +5,28 @@ cc.Class({
 
     properties: {
         alineGreen: cc.Node,
+        gameOverPanel: cc.Node,
 
         nameLabel: cc.Label,
         background: cc.Node,
         speed: 50,
         spineBoy: sp.Skeleton,
         typingScene: cc.Node,
+        typingBox: cc.EditBox,
         alineHead: cc.Node,
     },
 
     onLoad() {
         Emitter.instance.registerOnce('userName', this.getUserName.bind(this));
         Emitter.instance.registerOnce('completePortal', this.loadTyping.bind(this));
+        Emitter.instance.registerOnce('death', this.gameOver.bind(this));
 
         this._alineGreen = this.alineGreen.getComponent('alineController');
-        //this.background.width = 100000;
-        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+    },
 
-        // this.spineBoy.setAnimation(0, 'portal', false);
-        // this.spineBoy.setCompleteListener(() => {
-        //     this.spineBoy.addAnimation(1, 'hoverboard', false);
-        //     // this.moveBackground();
-        // });
+    start(){
+        this.gameOverPanel.active = false;
+        //this.typingScene.active = false;
     },
 
     // moveBackground() {
@@ -59,11 +59,18 @@ cc.Class({
     },
 
     loadTyping(){
-        this.typingScene.active = true;
+        this.typingBox.blur();
+        this.typingScene.active = false;
         this.alineHead.active = true;
         // this.moveBackground();
         this.spineBoyMoving();
         this._alineGreen.moving(2,70);
 
+    },
+
+    gameOver(){
+        Emitter.instance.emit('GameOver');
+        // this.gameOverPanel.active = true;
+        this.typingScene.active = false;
     }
 });

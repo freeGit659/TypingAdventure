@@ -29,5 +29,12 @@ cc.Class({
 
     update (dt) {
         this.updateHealth();
+        this.death();
     },
+
+    death(){
+        if(this.hpCurrent <= 0){
+            Emitter.instance.emit("death");
+        }
+    }
 });

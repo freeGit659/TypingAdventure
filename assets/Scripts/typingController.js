@@ -24,13 +24,17 @@ cc.Class({
         clock: cc.Node,
     },
 
+    onLoad(){
+        Emitter.instance.registerOnce('GameOver', this.onGameOver.bind(this));
+    },
+
     start () {
         this._wordsArray = randomWords(1000);
         this.wordsArray = this._wordsArray.filter(function(element){
             return element.length <= 8;
         });
         this.setWords();
-        this.focus();
+        //this.focus();
     },
 
     update (dt) {
@@ -90,11 +94,16 @@ cc.Class({
     clearEditBox(){
         this.typingInput.string = '';
         this.typingInput.node.getChildByName('TEXT_LABEL').string = '';
-        this.focus();
+        //this.focus();
     },
 
     focus(){
         this.typingInput.focus();
+    },
+
+    onGameOver(){
+        cc.log('gameOver');
+        this.typingInput.blur();
     }
 
     // restartGame(){
