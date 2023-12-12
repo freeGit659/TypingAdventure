@@ -38,12 +38,12 @@ cc.Class({
     // },
 
     spineBoyMoving(){
-        const movePositionX= -90;
+        const movePositionX= -80;
 
         cc.tween(this.spineBoy.node)
             .to(2, { x: movePositionX })
             .call(()=>{
-                
+
             })
             .start();
     },
@@ -63,7 +63,7 @@ cc.Class({
         this.alineHead.active = true;
         // this.moveBackground();
         this.spineBoyMoving();
-        this._alineGreen.moving(2,100);
+        this._alineGreen.moving(2,70);
 
     }
 });

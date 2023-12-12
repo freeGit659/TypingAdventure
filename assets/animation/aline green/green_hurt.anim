@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "green_hurt",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.08333333333333333,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2b61eef3-b339-4a01-9586-6d1770cf230b"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "8654e7b7-a275-4691-b9c5-3d3870703bf8"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "a40fce5e-7a54-41b4-9e54-7f46ef5bad80"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "17bafa84-1734-495e-804e-6ed5f72dbb2e"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "2b61eef3-b339-4a01-9586-6d1770cf230b"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

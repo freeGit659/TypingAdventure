@@ -12,6 +12,7 @@ cc.Class({
 
     start(){
         Emitter.instance.registerEvent("INCORRECT", this.fire.bind(this));
+        Emitter.instance.registerEvent("CORRECT", this.hurt.bind(this));
     },
 
     fire(){
@@ -32,5 +33,13 @@ cc.Class({
                 this.ani.play('green_idle');
             })
             .start()
+    },
+
+    hurt(){
+        this.ani.stop();
+        this.ani.play('green_hurt');
+        this.ani.on('finished', ()=>{
+            this.ani.play('green_idle');
+        });
     }
 });

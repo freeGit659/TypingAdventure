@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "green_attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.06666666666666667,
+  "sample": 60,
+  "speed": 0.1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "7e739c89-1c1f-4b7b-b61b-fb42e18ad9b8"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "ad67345a-7f67-461f-bfe2-15d99a21fa52"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "5c37fc6b-3818-4443-8cbf-3d586fbdfa33"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "45fb0e02-e3dc-46bb-aa98-c67aed6dcc5d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
