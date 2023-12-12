@@ -4,7 +4,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        alineGreen: cc.Node,
+        alien1: cc.Node,
         gameOverPanel: cc.Node,
 
         nameLabel: cc.Label,
@@ -13,37 +13,30 @@ cc.Class({
         spineBoy: sp.Skeleton,
         typingScene: cc.Node,
         typingBox: cc.EditBox,
-        alineHead: cc.Node,
     },
 
     onLoad() {
+        var _nextEnemy = this.nextEnemy.bind(this);
         Emitter.instance.registerOnce('userName', this.getUserName.bind(this));
-        Emitter.instance.registerOnce('completePortal', this.loadTyping.bind(this));
+        Emitter.instance.registerOnce('prepare', this.preparing.bind(this));
         Emitter.instance.registerOnce('death', this.gameOver.bind(this));
-
-        this._alineGreen = this.alineGreen.getComponent('alineController');
+        Emitter.instance.registerEvent('Alien1Dead', _nextEnemy);
+        this._alien1 = this.alien1.getComponent('alienController');
     },
 
     start(){
         this.gameOverPanel.active = false;
-        //this.typingScene.active = false;
+        this.typingScene.active = false;
     },
 
-    // moveBackground() {
-    //     const movePositionX= -280;
-
-    //     cc.tween(this.background)
-    //         .to(2, { x: movePositionX })
-    //         .start();
-    // },
-
-    spineBoyMoving(){
-        const movePositionX= -80;
+    spineBoyMoving(distance){
+        const movePositionX= this.spineBoy.node.x + distance;
 
         cc.tween(this.spineBoy.node)
             .to(2, { x: movePositionX })
             .call(()=>{
-
+                Emitter.instance.emit('start');
+                this.typingScene.active = true;
             })
             .start();
     },
@@ -54,23 +47,30 @@ cc.Class({
     //     }
     // },
 
+    preparing(){
+        this.nextEnemy();
+    },
+
     getUserName(data){
         this.nameLabel.string = data;
     },
 
     loadTyping(){
-        this.typingBox.blur();
-        this.typingScene.active = false;
-        this.alineHead.active = true;
-        // this.moveBackground();
-        this.spineBoyMoving();
-        this._alineGreen.moving(2,70);
-
+        //this.typingBox.blur();
+        this.typingScene.active = true;
     },
 
     gameOver(){
         Emitter.instance.emit('GameOver');
         // this.gameOverPanel.active = true;
         this.typingScene.active = false;
+    },
+
+    nextEnemy(){
+        const spawnData = {
+            x: this.spineBoy.node.x + 1200,
+        }
+        Emitter.instance.emit('Spawn', spawnData);
+        this.spineBoyMoving(300);
     }
 });

@@ -20,7 +20,7 @@ cc.Class({
         this.spineBoy.setAnimation(0, 'portal', false);
         this.spineBoy.setCompleteListener(() => {
             this.spineBoy.addAnimation(1, 'hoverboard', true);
-            Emitter.instance.emit('completePortal');
+            Emitter.instance.emit('prepare');
             // this.moveBackground();
         });
     },

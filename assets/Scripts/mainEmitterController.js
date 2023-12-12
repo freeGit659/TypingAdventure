@@ -8,7 +8,6 @@ cc.Class({
 
     onLoad () {
         Emitter.instance = new Emitter();
-        cc.log('main');
     },
 
     start () {

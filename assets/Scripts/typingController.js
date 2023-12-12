@@ -34,7 +34,7 @@ cc.Class({
             return element.length <= 8;
         });
         this.setWords();
-        //this.focus();
+        this.focus();
     },
 
     update (dt) {
@@ -73,11 +73,11 @@ cc.Class({
     checkMatch(input){
         if(this.wordsLayout[this.indexTyping].string === input) {
             this.numberOfCorrect++;
-            Emitter.instance.emit('CORRECT', this.numberOfCorrect);
+            Emitter.instance.emit('CORRECT');
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,255,0);
         }
         else {
-            Emitter.instance.emit('INCORRECT', this.numberOfCorrect);
+            Emitter.instance.emit('INCORRECT');
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
         }
         this.indexTyping++;
@@ -94,7 +94,7 @@ cc.Class({
     clearEditBox(){
         this.typingInput.string = '';
         this.typingInput.node.getChildByName('TEXT_LABEL').string = '';
-        //this.focus();
+        this.focus();
     },
 
     focus(){
