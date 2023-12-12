@@ -1,0 +1,89 @@
+const Emitter = require('mEmitter');
+const randomWords = require("random-words");
+
+cc.Class({
+    extends: cc.Component,
+    properties: {
+        indexTyping: 0,
+        numSpace: 0,
+        numberOfCorrect: 0,
+        _textTemp: '',
+        words: [cc.Label],
+        row1: cc.Node,
+        row2: cc.Node,
+        wordsLayout: [cc.Label],
+        wordsLayout2: [cc.Label],
+        wordsArray: [String],
+        typingInput: cc.EditBox,
+    },
+
+    start() {
+        this._wordsArray = randomWords(1000);
+        this.wordsArray = this._wordsArray.filter(function (element) {
+            return element.length <= 8;
+        });
+        this.setWords();
+        this.focus();
+    },
+
+    update(dt) {
+        if (this.indexTyping >= 5) {
+            this.wordsArray.splice(0, this.wordsLayout.length);
+            this.indexTyping = 0;
+            this.setWords();
+            this.numSpace += 5;
+        }
+    },
+
+    setWords() {
+        this.wordsLayout = [];
+        this.wordsLayout2 = [];
+        for (let i = 0; i < this.row1.childrenCount; i++) {
+            this.wordsLayout.push(this.row1.getChildByName(`Word ` + i).getComponent(cc.Label));
+            this.wordsLayout[i].string = this.wordsArray[i];
+            this.wordsLayout[i].node.color = new cc.Color(255, 255, 255);
+        }
+        for (let j = 0; j < this.row2.childrenCount; j++) {
+            this.wordsLayout2.push(this.row2.getChildByName(`Word ` + j).getComponent(cc.Label));
+            this.wordsLayout2[j].string = this.wordsArray[j + this.row1.childrenCount];
+            this.wordsLayout[j].node.color = new cc.Color(255, 255, 255);
+        }
+        this.wordsLayout[this.indexTyping].node.color = new cc.Color(241, 214, 106);
+    },
+
+    onTextChanged() {
+        Emitter.instance.emit('STARTCOUNTDOWN');
+        cc.log("|" + this.typingInput.string + '|');
+        if (this.typingInput.string.includes(' ')) {
+            this.checkMatch(this.typingInput.string.trimEnd());
+        }
+    },
+
+    checkMatch(input) {
+        if (this.wordsLayout[this.indexTyping].string === input) {
+            this.numberOfCorrect++;
+            Emitter.instance.emit('CORRECT', this.numberOfCorrect);
+            this.wordsLayout[this.indexTyping].node.color = new cc.Color(0, 255, 0);
+        }
+        else this.wordsLayout[this.indexTyping].node.color = new cc.Color(255, 0, 0);
+        this.indexTyping++;
+        if (this.indexTyping < 5) {
+            this.wordsLayout[this.indexTyping].node.color = new cc.Color(241, 214, 106);
+        }
+        this.clearEditBox();
+    },
+
+    onEnter() {
+        this.checkMatch(this.typingInput.string);
+    },
+
+    clearEditBox() {
+        this.typingInput.string = '';
+        this.typingInput.node.getChildByName('TEXT_LABEL').string = '';
+        this.focus();
+    },
+
+    focus() {
+        this.typingInput.focus();
+    }
+});

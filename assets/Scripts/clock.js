@@ -19,18 +19,17 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        Emitter.instance = new Emitter();
-        Emitter.instance.registerEvent("STARTCOUNTDOWN", this.fillBar.bind(this));
+
     },
 
     start () {
         this.currentTime = this.time;
         this.coverSprite = this.cover.getComponent(cc.Sprite);
         this.timeBar.progress = 1;
+        Emitter.instance.registerEvent("STARTCOUNTDOWN", this.fillBar.bind(this));
     },
 
     update (dt) {
-        cc.log(this.currentTime)
         if(!this.isTyping) return;
         if(this.currentTime >= (this.time*0.4)){
             this.cover.color = new cc.Color(0,255,0);
@@ -65,8 +64,6 @@ cc.Class({
     },
 
     fillBar(){
-        cc.tween(this.currentTime)
-        .to(60,0)
-        .start()
+        cc.log('fill');
     }
 });

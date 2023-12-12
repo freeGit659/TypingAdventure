@@ -59,7 +59,6 @@ cc.Class({
     },
 
     onTextChanged(){
-        Emitter.instance.emit('STARTCOUNTDOWN');
         this.clock.getComponent('clock').isTyping = true;
         cc.log("|"+this.typingInput.string+'|');
         if(this.typingInput.string.includes(' ')) {
@@ -73,7 +72,10 @@ cc.Class({
             Emitter.instance.emit('CORRECT', this.numberOfCorrect);
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,255,0);
         }
-        else this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
+        else {
+            Emitter.instance.emit('INCORRECT', this.numberOfCorrect);
+            this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
+        }
         this.indexTyping++;
         if(this.indexTyping < 5) {
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);

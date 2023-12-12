@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "6025039d-41f9-47b9-aa95-57a1b0f1a53c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "predatormask__0043_fire_9": {
+      "ver": "1.0.4",
+      "uuid": "ffc02a10-cfab-49c2-af03-6d33e9652568",
+      "rawTextureUuid": "6025039d-41f9-47b9-aa95-57a1b0f1a53c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 486,
+      "height": 401,
+      "rawWidth": 486,
+      "rawHeight": 401,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
