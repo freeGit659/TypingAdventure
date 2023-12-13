@@ -3,10 +3,13 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        hpMax: 10,
+        hpMax: 20,
         hpCurrent: 0,
+        scoreGiven: 1,
 
-        isDead: false,
+        isDead: true,
+
+        healthPopup: cc.Label,
     },
 
     onLoad () {
@@ -14,6 +17,7 @@ cc.Class({
     },
 
     start () {
+        this.healthPopup.node.active = false;
         this.health = this.getComponent(cc.ProgressBar);
         this.hpCurrent = this.hpMax;
         Emitter.instance.registerEvent("CORRECT", this.hurt.bind(this));
@@ -26,6 +30,7 @@ cc.Class({
 
     hurt(){
         this.hpCurrent -= 10;
+        this.createHealthPopup(-10);
     },
 
     update (dt) {
@@ -42,7 +47,22 @@ cc.Class({
         this.scheduleOnce(function() {
             this.hpCurrent = this.hpMax;
                 this.isDead = false;
-                Emitter.instance.emit('Alien1Dead');
+                Emitter.instance.emit('Alien1Dead', this.scoreGiven);
         }, ani.play('die').duration/ani.play('die').speed );
+    },
+
+    createHealthPopup(damage){
+        this.healthPopup.node.active = true;
+        this.healthPopup.string = damage;
+        this.healthPopup.node.y = 250;
+        this.healthPopup.node.scale = 1;
+        cc.tween(this.healthPopup.node)
+        .to(0.3, {y: 450, scale: 3})
+        .call(()=>{
+            this.healthPopup.node.active = false;
+            this.isDead = false;
+            cc.log('pop');
+        })
+        .start()
     }
 });
