@@ -47,7 +47,7 @@ cc.Class({
         this.scheduleOnce(function() {
             this.hpCurrent = this.hpMax;
                 this.isDead = false;
-                Emitter.instance.emit('Alien1Dead', this.scoreGiven);
+                Emitter.instance.emit('AlienDead', this.scoreGiven);
         }, ani.play('die').duration/ani.play('die').speed );
     },
 

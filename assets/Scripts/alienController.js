@@ -4,16 +4,16 @@ cc.Class({
 
     properties: {
         ani: cc.Animation,
+
     },
 
     onLoad(){
-        
+        Emitter.instance.registerEvent("Spawned", this.setPositionSpawn.bind(this));
     },
 
     start(){
         Emitter.instance.registerEvent("INCORRECT", this.fire.bind(this));
         Emitter.instance.registerEvent("CORRECT", this.hurt.bind(this));
-        Emitter.instance.registerEvent("Spawn", this.setPositionSpawn.bind(this));
     },
 
     fire(){
@@ -32,6 +32,7 @@ cc.Class({
             .call(()=>{
                 this.ani.stop();
                 this.ani.play('idle');
+                Emitter.instance.emit('start');
             })
             .start()
     },
@@ -45,7 +46,7 @@ cc.Class({
     },
 
     setPositionSpawn(data){
-        cc.log('áđấ');
+        cc.log(data);
         this.node.x = data.x;
         this.moving(2, 675)
     }

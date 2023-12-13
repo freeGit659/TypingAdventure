@@ -20,7 +20,6 @@ cc.Class({
 
     update (dt) {
         if(this.isFollow) {
-            cc.log('follow');
             let targetPosition = new cc.Vec2(this.target.x, this.target.y + 120 )
             // let currentPosition = new cc.Vec2(this.node.x, 0);
             // let _currentPosition = currentPosition.lerp(targetPosition, 0, currentPosition);

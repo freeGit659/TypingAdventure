@@ -16,6 +16,7 @@ cc.Class({
 
     start(){
         Emitter.instance.registerEvent('CORRECT', this.onShoot.bind(this));
+        //Emitter.instance.registerEvent('INCORRECT', this.hurt.bind(this));
         //Emitter.instance.registerEvent("INCORRECT", this.hurt.bind(this));
         this.spineBoy.setAnimation(0, 'portal', false);
         this.spineBoy.setCompleteListener(() => {
@@ -44,5 +45,5 @@ cc.Class({
 
     hurt(){
         this.spineBoy.setAnimation(0, 'idle', false);
-    }
+    },
 });

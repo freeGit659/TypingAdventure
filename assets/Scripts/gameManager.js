@@ -20,7 +20,7 @@ cc.Class({
         Emitter.instance.registerOnce('userName', this.getUserName.bind(this));
         Emitter.instance.registerOnce('prepare', this.preparing.bind(this));
         Emitter.instance.registerOnce('death', this.gameOver.bind(this));
-        Emitter.instance.registerEvent('Alien1Dead', _nextEnemy);
+        Emitter.instance.registerEvent('AlienDead', _nextEnemy);
         this._alien1 = this.alien1.getComponent('alienController');
     },
 
@@ -35,7 +35,6 @@ cc.Class({
         cc.tween(this.spineBoy.node)
             .to(2, { x: movePositionX })
             .call(()=>{
-                Emitter.instance.emit('start');
                 this.typingScene.active = true;
             })
             .start();

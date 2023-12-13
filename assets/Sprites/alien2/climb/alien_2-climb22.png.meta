@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "0dce0125-bfe6-4d94-bf0c-8e366ffdd451",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "alien_2-climb22": {
+      "ver": "1.0.4",
+      "uuid": "dc2a7d9d-423d-47ed-8406-c2db386a4d4e",
+      "rawTextureUuid": "0dce0125-bfe6-4d94-bf0c-8e366ffdd451",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -11.5,
+      "offsetY": -7,
+      "trimX": 46,
+      "trimY": 18,
+      "width": 249,
+      "height": 519,
+      "rawWidth": 364,
+      "rawHeight": 541,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

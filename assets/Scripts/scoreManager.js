@@ -14,7 +14,7 @@ cc.Class({
         this.scoreLabel = this.node.getComponent(cc.Label);
         this.scoreUpdate(this.scoreCurrent);
         let _scoreUpdate = this.scoreUpdate.bind(this);
-        Emitter.instance.registerEvent('Alien1Dead', _scoreUpdate);
+        Emitter.instance.registerEvent('AlienDead', _scoreUpdate);
     },
 
     // update (dt) {},
