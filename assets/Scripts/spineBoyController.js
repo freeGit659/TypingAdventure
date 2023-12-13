@@ -17,6 +17,7 @@ cc.Class({
     },
 
     start(){
+        this.attackSound = this.node.getComponent(cc.AudioSource);
         Emitter.instance.registerEvent('CORRECT', this.onShoot.bind(this));
         Emitter.instance.registerEvent('Login', this.portal.bind(this));
         //Emitter.instance.registerEvent("INCORRECT", this.hurt.bind(this));
@@ -37,6 +38,7 @@ cc.Class({
 
     onShoot() {
         this.spineBoy.setAnimation(2, 'shoot', false);
+        this.attackSound.play();
     },
 
     hurt(){

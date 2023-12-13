@@ -20,7 +20,7 @@ cc.Class({
     },
 
     onLoad(){
-        Emitter.instance.registerOnce('GameOver', this.onGameOver.bind(this));
+        // Emitter.instance.registerOnce('GameOver', this.onGameOver.bind(this));
     },
 
     start () {
@@ -53,21 +53,6 @@ cc.Class({
         }
     },
 
-    checkWord(input){
-        if(this.wordArr[this.indexTyping]=== input) {
-            this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
-        }
-        else {
-            Emitter.instance.emit('INCORRECT');
-            this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
-        }
-        this.indexTyping++;
-        if(this.indexTyping < 5) {
-            this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);
-        }
-        this.clearEditBox();
-    },
-
     checkMatch(input){
         if(this.word.string === input) {
             Emitter.instance.emit('CORRECT');
@@ -80,25 +65,28 @@ cc.Class({
         this.wordsArray.shift();
         this.setWords();
         this.clearEditBox();
+        this.focus();
     },
 
     onEnter(){
         this.checkMatch(this.typingInput.string);
+        this.clearEditBox();
+        this.focus();
     },
 
     clearEditBox(){
         this.typingInput.string = '';
         this.typingInput.node.getChildByName('TEXT_LABEL').string = '';
-        this.focus();
+        this.typingInput.blur();
     },
 
     focus(){
         this.typingInput.focus();
     },
 
-    onGameOver(){
-        this.typingInput.blur();
-    }
+    // onGameOver(){
+    //     this.typingInput.blur();
+    // }
 
     // restartGame(){
     //     this.textLabel.string = '';

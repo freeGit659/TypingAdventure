@@ -27,7 +27,7 @@ cc.Class({
     },
 
     start(){
-
+        this.soundAttack = this.node.getComponent(cc.AudioSource);
     },
 
     update(){
@@ -36,6 +36,7 @@ cc.Class({
     fire(){
         this.ani.stop();
         this.ani.play('attack');
+        this.soundAttack.play();
         this.ani.on('finished', ()=>{
             this.ani.play('idle');
         });

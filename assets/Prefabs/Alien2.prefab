@@ -32,10 +32,13 @@
       },
       {
         "__id__": 23
+      },
+      {
+        "__id__": 24
       }
     ],
     "_prefab": {
-      "__id__": 24
+      "__id__": 25
     },
     "_opacity": 255,
     "_color": {
@@ -488,7 +491,7 @@
       "__id__": 6
     },
     "_enabled": true,
-    "timeAttackMax": 3,
+    "timeAttackMax": 4,
     "timeAttackCurrent": 0,
     "isStart": false,
     "_id": ""
@@ -751,6 +754,24 @@
     },
     "_enabled": true,
     "scoreGiven": 1,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.AudioSource",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_clip": {
+      "__uuid__": "1b8241ab-3ef9-460a-b1bc-e91912a5c79f"
+    },
+    "_volume": 0.6,
+    "_mute": false,
+    "_loop": false,
+    "playOnLoad": false,
+    "preload": false,
     "_id": ""
   },
   {

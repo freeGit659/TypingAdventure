@@ -6,6 +6,8 @@ cc.Class({
     properties: {
         alien1: cc.Node,
 
+        gameOverPanel: cc.Node,
+
         nameLabel: cc.Label,
         background: cc.Node,
         speed: 50,
@@ -68,5 +70,9 @@ cc.Class({
         }
             Emitter.instance.emit('Spawn');
         this.spineBoyMoving(230);
+    },
+
+    restart(){
+
     }
 });
