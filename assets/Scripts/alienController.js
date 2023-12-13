@@ -8,7 +8,8 @@ cc.Class({
     },
 
     onLoad(){
-        Emitter.instance.registerEvent("Spawned", this.setPositionSpawn.bind(this));
+        var _setPositionSpawn = this.setPositionSpawn.bind(this)
+        Emitter.instance.registerEvent("Spawned", _setPositionSpawn);
     },
 
     start(){
@@ -46,7 +47,7 @@ cc.Class({
     },
 
     setPositionSpawn(data){
-        cc.log(data);
+        cc.log('spawn');
         this.node.x = data.x;
         this.moving(2, 675)
     }

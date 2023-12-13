@@ -64,6 +64,6 @@ cc.Class({
     },
 
     fillBar(){
-        cc.log('fill');
+  
     }
 });

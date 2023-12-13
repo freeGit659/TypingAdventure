@@ -64,7 +64,6 @@ cc.Class({
 
     onTextChanged(){
         this.clock.getComponent('clock').isTyping = true;
-        cc.log("|"+this.typingInput.string+'|');
         if(this.typingInput.string.includes(' ')) {
             this.checkMatch(this.typingInput.string.trimEnd());
         }
@@ -102,7 +101,6 @@ cc.Class({
     },
 
     onGameOver(){
-        cc.log('gameOver');
         this.typingInput.blur();
     }
 

@@ -9,7 +9,8 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        Emitter.instance.registerEvent("Spawn", this.selectEnemySpawn.bind(this));
+        var _selectEnemySpawn = this.selectEnemySpawn.bind(this)
+        Emitter.instance.registerEvent("Spawn", _selectEnemySpawn);
     },
 
     start () {
@@ -21,7 +22,9 @@ cc.Class({
     // update (dt) {},
 
     selectEnemySpawn(data){
-        this.enemy[Math.floor(Math.random() * 2)].active = true;
+        let randomEnemy = Math.floor(Math.random() * 3);
+        this.enemy[randomEnemy].active = true;
+        cc.log(`random: `,randomEnemy);
         Emitter.instance.emit('Spawned',data);
     }
 });

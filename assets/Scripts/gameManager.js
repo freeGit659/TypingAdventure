@@ -21,7 +21,6 @@ cc.Class({
         Emitter.instance.registerOnce('prepare', this.preparing.bind(this));
         Emitter.instance.registerOnce('death', this.gameOver.bind(this));
         Emitter.instance.registerEvent('AlienDead', _nextEnemy);
-        this._alien1 = this.alien1.getComponent('alienController');
     },
 
     start(){
@@ -69,7 +68,10 @@ cc.Class({
         const spawnData = {
             x: this.spineBoy.node.x + 1200,
         }
-        Emitter.instance.emit('Spawn', spawnData);
+        this.scheduleOnce(()=>{
+            cc.log('next enemy')
+            Emitter.instance.emit('Spawn', spawnData);
+        }, 0.5);
         this.spineBoyMoving(300);
     }
 });

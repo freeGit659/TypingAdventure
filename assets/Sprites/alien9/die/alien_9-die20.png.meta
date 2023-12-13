@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "f1fba69f-2188-4f36-8a06-cc47ba7402d4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "alien_9-die20": {
+      "ver": "1.0.4",
+      "uuid": "ba24fbb3-8310-47ad-b092-84aa5186f7d9",
+      "rawTextureUuid": "f1fba69f-2188-4f36-8a06-cc47ba7402d4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -99,
+      "offsetY": -278.5,
+      "trimX": 27,
+      "trimY": 685,
+      "width": 1080,
+      "height": 360,
+      "rawWidth": 1332,
+      "rawHeight": 1173,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
