@@ -1,9 +1,13 @@
+
 var Emitter = require('mEmitter');
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        enemy: [cc.Node],
+        enemy: [cc.Prefab],
+        player: cc.Node,
+
+        parent: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -14,17 +18,18 @@ cc.Class({
     },
 
     start () {
-        this.enemy.forEach(element => {
-            element.active = false;
-        });
+        // this.enemy.forEach(element => {
+        //     element.active = false;
+        // });
     },
 
     // update (dt) {},
 
-    selectEnemySpawn(data){
+    selectEnemySpawn(){
         let randomEnemy = Math.floor(Math.random() * 3);
-        this.enemy[randomEnemy].active = true;
-        cc.log(`random: `,randomEnemy);
-        Emitter.instance.emit('Spawned',data);
+        const enemy = cc.instantiate(this.enemy[randomEnemy]);
+        enemy.parent = this.parent;
+        enemy.getComponent('alienController').setPositionSpawn(this.player.x + 1200, -125);
+        // Emitter.instance.emit('Spawned',data);
     }
 });

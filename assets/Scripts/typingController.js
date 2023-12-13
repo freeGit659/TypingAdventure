@@ -10,18 +10,13 @@ cc.Class({
 
         _textTemp:'',
 
-        words: [cc.Label],
-        row1: cc.Node,
-        row2: cc.Node,
-        wordsLayout: [cc.Label],
-        wordsLayout2: [cc.Label],
+        word: cc.Label,
 
         scoreLabel: cc.Label,
 
         wordsArray: [String],
 
         typingInput: cc.EditBox,
-        clock: cc.Node,
     },
 
     onLoad(){
@@ -38,42 +33,29 @@ cc.Class({
     },
 
     update (dt) {
-        if(this.indexTyping >=5){
-            this.wordsArray.splice(0, this.wordsLayout.length);
-            this.indexTyping = 0;
-            this.setWords();
-            this.numSpace += 5;
-        }
+        // if(this.indexTyping >=5){
+        //     this.wordsArray.splice(0, this.wordsLayout.length);
+        //     this.indexTyping = 0;
+        //     this.setWords();
+        //     this.numSpace += 5;
+        // }
     },
 
     setWords(){
-        this.wordsLayout = [];
-        this.wordsLayout2 = [];
-        for(let i = 0; i < this.row1.childrenCount; i++){
-            this.wordsLayout.push(this.row1.getChildByName(`Word `+i).getComponent(cc.Label));
-            this.wordsLayout[i].string = this.wordsArray[i];
-            this.wordsLayout[i].node.color = new cc.Color(255,255,255);
-        }
-        for(let j = 0; j < this.row2.childrenCount; j++){
-            this.wordsLayout2.push(this.row2.getChildByName(`Word `+j).getComponent(cc.Label));
-            this.wordsLayout2[j].string = this.wordsArray[j+this.row1.childrenCount];
-            this.wordsLayout[j].node.color = new cc.Color(255,255,255);
-        }
-        this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);
+        this.word.string = this.wordsArray[0];
+        this.word.node.color = new cc.Color(241,214,106);
     },
 
     onTextChanged(){
-        this.clock.getComponent('clock').isTyping = true;
+        cc.log(this.typingInput.string);
         if(this.typingInput.string.includes(' ')) {
             this.checkMatch(this.typingInput.string.trimEnd());
         }
     },
 
-    checkMatch(input){
-        if(this.wordsLayout[this.indexTyping].string === input) {
-            this.numberOfCorrect++;
-            Emitter.instance.emit('CORRECT');
-            this.wordsLayout[this.indexTyping].node.color = new cc.Color(0,255,0);
+    checkWord(input){
+        if(this.wordArr[this.indexTyping]=== input) {
+            this.wordsLayout[this.indexTyping].node.color = new cc.Color(255,0,0);
         }
         else {
             Emitter.instance.emit('INCORRECT');
@@ -83,6 +65,20 @@ cc.Class({
         if(this.indexTyping < 5) {
             this.wordsLayout[this.indexTyping].node.color = new cc.Color(241,214,106);
         }
+        this.clearEditBox();
+    },
+
+    checkMatch(input){
+        if(this.word.string === input) {
+            Emitter.instance.emit('CORRECT');
+            this.word.node.color = new cc.Color(0,255,0);
+        }
+        else {
+            Emitter.instance.emit('INCORRECT');
+            this.word.node.color = new cc.Color(255,0,0);
+        }
+        this.wordsArray.shift();
+        this.setWords();
         this.clearEditBox();
     },
 

@@ -5,6 +5,8 @@ cc.Class({
 
     properties: {
         spineBoy: sp.Skeleton,
+
+
         //background: cc.Node,
         _speed: 80,
         isMoving: true
@@ -16,14 +18,8 @@ cc.Class({
 
     start(){
         Emitter.instance.registerEvent('CORRECT', this.onShoot.bind(this));
-        //Emitter.instance.registerEvent('INCORRECT', this.hurt.bind(this));
+        Emitter.instance.registerEvent('Login', this.portal.bind(this));
         //Emitter.instance.registerEvent("INCORRECT", this.hurt.bind(this));
-        this.spineBoy.setAnimation(0, 'portal', false);
-        this.spineBoy.setCompleteListener(() => {
-            this.spineBoy.addAnimation(1, 'hoverboard', true);
-            Emitter.instance.emit('prepare');
-            // this.moveBackground();
-        });
     },
 
     // moveBackground() {
@@ -46,4 +42,12 @@ cc.Class({
     hurt(){
         this.spineBoy.setAnimation(0, 'idle', false);
     },
+
+    portal(){
+        this.spineBoy.setAnimation(0, 'portal', false);
+        this.spineBoy.setCompleteListener(() => {
+            this.spineBoy.addAnimation(1, 'hoverboard', true);
+            Emitter.instance.emit('prepare');
+        });
+    }
 });

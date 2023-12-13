@@ -3,18 +3,34 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        ani: cc.Animation,
+        scoreGiven: 1,
+    },
 
+    onEnable(){
+        this.ani = this.node.getComponent(cc.Animation);
+        this._fire = this.fire.bind(this);
+        this._hurt = this.hurt.bind(this);
+        Emitter.instance.registerEvent("INCORRECT", this._fire );
+        Emitter.instance.registerEvent("CORRECT", this._hurt);
+    },
+
+    onDestroy() {
+        Emitter.instance.removeEvent("INCORRECT", this._fire );
+        Emitter.instance.removeEvent("CORRECT", this._hurt);
+        Emitter.instance.emit('AlienDead', this.scoreGiven);
+        this.ani = null;
     },
 
     onLoad(){
-        var _setPositionSpawn = this.setPositionSpawn.bind(this)
-        Emitter.instance.registerEvent("Spawned", _setPositionSpawn);
+        // var _setPositionSpawn = this.setPositionSpawn.bind(this)
+        // Emitter.instance.registerEvent("Spawned", _setPositionSpawn);
     },
 
     start(){
-        Emitter.instance.registerEvent("INCORRECT", this.fire.bind(this));
-        Emitter.instance.registerEvent("CORRECT", this.hurt.bind(this));
+
+    },
+
+    update(){
     },
 
     fire(){
@@ -46,9 +62,10 @@ cc.Class({
         });
     },
 
-    setPositionSpawn(data){
+    setPositionSpawn(x, y){
         cc.log('spawn');
-        this.node.x = data.x;
+        this.node.x = x;
+        this.node.y = y;
         this.moving(2, 675)
     }
 });

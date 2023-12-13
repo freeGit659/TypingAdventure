@@ -6,6 +6,8 @@ cc.Class({
         hpMax: 100,
         hpCurrent: 0,
 
+        ani: cc.Animation,
+
         health : cc.ProgressBar,
 
         healthPopup: cc.Label,
@@ -29,6 +31,8 @@ cc.Class({
     hurt(){
         this.hpCurrent -= 10;
         this.createHealthPopup(-10);
+        this.ani.play('hurt');
+        
     },
 
     update (dt) {

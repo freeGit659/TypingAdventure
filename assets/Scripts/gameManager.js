@@ -5,7 +5,6 @@ cc.Class({
 
     properties: {
         alien1: cc.Node,
-        gameOverPanel: cc.Node,
 
         nameLabel: cc.Label,
         background: cc.Node,
@@ -24,7 +23,6 @@ cc.Class({
     },
 
     start(){
-        this.gameOverPanel.active = false;
         this.typingScene.active = false;
     },
 
@@ -68,10 +66,7 @@ cc.Class({
         const spawnData = {
             x: this.spineBoy.node.x + 1200,
         }
-        this.scheduleOnce(()=>{
-            cc.log('next enemy')
-            Emitter.instance.emit('Spawn', spawnData);
-        }, 0.5);
-        this.spineBoyMoving(300);
+            Emitter.instance.emit('Spawn');
+        this.spineBoyMoving(230);
     }
 });

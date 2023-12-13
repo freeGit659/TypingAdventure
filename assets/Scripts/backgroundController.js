@@ -19,7 +19,7 @@ cc.Class({
     },
 
     update (dt) {
-        if(this.target.x>=this.right.x){
+        if(this.target.x+ 70>=this.right.x){
             this.left.x = this.right.x;
             this.right.x = this.left.x + 960;
         }
